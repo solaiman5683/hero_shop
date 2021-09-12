@@ -228,6 +228,7 @@ const loadProducts = () => {
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
+    console.log(product)
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
@@ -238,7 +239,11 @@ const showProducts = (products) => {
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+      <div class="p-4 text-light">
+      <span class="bg-primary bg-gradient px-4 py-2 rounded-pill">Ratings:${product.rating.rate}</span>
+      <span class="bg-dark bg-gradient px-4 py-2 rounded-pill">Total:${product.rating.count}</span>
+      </div>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success fs-5">Add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
@@ -269,7 +274,7 @@ const updatePrice = (id, value) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = Math.round(value);
+  document.getElementById(id).innerText = value.toFixed(2);
 };
 
 // update delivery charge and total Tax
