@@ -63,7 +63,9 @@ body {
   width: 150px;
   /* height: 150px; */
 }
-
+.btn{
+  border-radius: 0 !important;
+}
 .cart {
   width: 350px;
   /* border: 1px solid green; */

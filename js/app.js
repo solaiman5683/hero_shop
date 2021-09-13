@@ -1,3 +1,4 @@
+// Load Products Data
 const loadProducts = () => {
   const data = [{
     "id": 1,
@@ -224,7 +225,7 @@ const loadProducts = () => {
 };
 
 
-// show all product in UI 
+// Show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
@@ -241,10 +242,10 @@ const showProducts = (products) => {
       <h2>Price: $ ${product.price}</h2>
       <div class="p-4 text-light">
       <span class="bg-primary bg-gradient px-4 py-2 rounded-pill">Ratings:${product.rating.rate}</span>
-      <span class="bg-dark bg-gradient px-4 py-2 rounded-pill">Total:${product.rating.count}</span>
+      <span class="bg-success bg-gradient px-4 py-2 rounded-pill">Total:${product.rating.count}</span>
       </div>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success fs-5">Add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-dark rounded bg-gradient"><i class="fas fa-cart-plus"></i> Add to cart</button>
+      <button id="details-btn" class="btn btn-danger rounded bg-gradient">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
